@@ -19,14 +19,17 @@ module.exports = {
 
   deploy : {
     production : {
-      key: '~/.ssh',
       user : 'root',
       host : '155.138.199.62 ',
       ref  : 'origin/master',
       repo : 'git@github.com:qinpeip/pm2.git',
       path : '/root/pm2',
       "pre-setup": "echo 'This is a pre-setup command'",
-      'post-deploy' : 'pm2 reload ecosystem.config.js --env production'
+      'post-deploy' : 'pm2 reload ecosystem.config.js --env production',
+      "ssh_options":"StrictHostKeyChecking=no",
+      "env":{
+        "NODE_ENV":"production"
+      }
     }
   }
 };
