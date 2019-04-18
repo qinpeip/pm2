@@ -19,11 +19,13 @@ module.exports = {
 
   deploy : {
     production : {
-      user : 'node',
-      host : '140.143.237.66',
+      key: '~/.ssh',
+      user : 'root',
+      host : '155.138.199.62 ',
       ref  : 'origin/master',
       repo : 'git@github.com:qinpeip/pm2.git',
-      path : '/production',
+      path : '/root/pm2',
+      "pre-setup": "echo 'This is a pre-setup command'",
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
