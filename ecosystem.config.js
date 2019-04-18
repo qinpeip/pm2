@@ -26,7 +26,7 @@ module.exports = {
       repo : 'git@github.com:qinpeip/pm2.git',
       path : '/root/pm2',
       "pre-setup": "echo 'This is a pre-setup command'",
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+      'post-deploy' : 'pm2 reload ecosystem.config.js --env production'
     }
   }
 };
